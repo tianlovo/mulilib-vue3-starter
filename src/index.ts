@@ -19,6 +19,3 @@ export default {
     // app.component('MyButton', MyButton)
   },
 };
-
-// TODO 按需导出
-// export * from '@/components'

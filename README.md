@@ -23,9 +23,70 @@
 - **代码规范**: ESLint 9 + Prettier 3.6
 - **Node 版本**: ^20.19.0 || >=22.12.0
 
-## 📖 IDE 推荐配置
+------
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (禁用 Vetur)。
+## 使用说明
+
+若本库是带样式的，那么目标项目需要在入口文件引入本库的样式文件
+```ts
+import 'muli-lib/dist/style.css'
+```
+
+### 做为自己的库需要修改的地方
+
+1. `package.json`
+
+   其中的`mulilib-vue3-starter`和`muli-lib`
+
+   ```json
+   {
+     "name": "mulilib-vue3-starter",
+     "main": "./build/dist/muli-lib.umd.js",
+     "module": "./build/dist/muli-lib.es.js",
+     "types": "./build/dist/index.d.ts",
+     "exports": {
+       ".": {
+         "import": "./build/dist/muli-lib.es.js",
+         "require": "./build/dist/muli-lib.umd.js"
+       },
+       "./dist/style.css": "./build/dist/index.css"
+     },
+   }
+   ```
+
+2. ` vite.config.ts `
+
+   其中的`muli-lib`
+
+   ```ts
+   {
+       build: {
+       lib: {
+         entry: path.resolve(__dirname, 'src/index.ts'),
+         name: 'muli-lib',
+         formats: ['es', 'umd'],
+         fileName: (format) => `muli-lib.${format}.js`
+       },
+     },
+   }
+   ```
+
+3. `playground/index.html`
+
+   其中的`MuliLib`
+
+   ```html
+   <title>MuliLib Vue3 Playground</title>
+   ```
+
+4. `playground/App.vue`
+
+   其中的`MuliLib`
+
+   ```vue
+   <h1>MuliLib Vue3 Playground</h1>
+
+------
 
 ### TypeScript 支持
 

@@ -94,7 +94,17 @@ export default defineConfig(({ mode, command }) => ({
   },
 
   server: {
-    port: 16173,
+    port: 17173,
     hmr: true,
+    open: true,
   },
+
+  // 开发环境配置，playground
+  ...(command === 'serve' && mode === 'playground' && {
+    root: './playground',
+    publicDir: '../public',
+    build: {
+      outDir: '../dist-playground'
+    }
+  })
 }));
