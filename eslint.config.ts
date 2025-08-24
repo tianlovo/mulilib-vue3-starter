@@ -11,7 +11,7 @@ export default defineConfigWithVueTs(
 
   globalIgnores([
     '**/dist/**', '**/dist-ssr/**', '**/coverage/**',
-    'env.d.ts', '**/logger.ts'
+    '**/env.d.ts', '**/logger.ts'
   ]),
 
   // Vue3 必备规则
