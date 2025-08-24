@@ -1,8 +1,8 @@
 {
-  "name": "mulilib-vue3-starter",
+  "name": "@xlyo-mulimuli/mulilib-vue3-starter",
   "version": "1.0.0",
   "description": "MuliMuli vue3 library starter.",
-  "private": true,
+  "private": false,
   "type": "module",
   "main": "./build/dist/muli-lib.umd.js",
   "module": "./build/dist/muli-lib.es.js",
